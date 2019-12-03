@@ -45,8 +45,20 @@ window.addEventListener("load", () => {
 // hero img
 const hero = document.querySelector(".intro img");
 
-hero.addEventListener("click", () => {
-  hero.style.opacity = 0.5;
+window.addEventListener("keydown", e => {
+  gsap.to(hero, {
+    duration: 0.5,
+    filter: "blur(10px)",
+    ease: "circ.out"
+  });
+});
+
+window.addEventListener("keyup", e => {
+  gsap.to(hero, {
+    duration: 0.5,
+    filter: "blur(0px)",
+    ease: "circ.out"
+  });
 });
 
 // all other imgs
