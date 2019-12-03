@@ -68,3 +68,12 @@ btns.forEach(btn => {
     alert("clicked!");
   });
 });
+
+// print guilt tripping lol
+window.addEventListener("beforeprint", () => {
+  alert("do you really want to kill a tree that badly? 🌲😢🌳😭🌴");
+});
+
+window.addEventListener("afterprint", () => {
+  alert("oooo wow look at this cool guy *printing websites* 😂🙃😂");
+});
