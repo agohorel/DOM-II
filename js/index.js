@@ -25,8 +25,8 @@ navLogo.addEventListener("mouseleave", () => {
 const navItems = document.querySelectorAll(".nav-link");
 
 navItems.forEach(item => {
-  item.addEventListener("click", () => {
-    alert("clicked!");
+  item.addEventListener("click", e => {
+    e.preventDefault();
   });
 });
 
@@ -55,8 +55,11 @@ const imgs = document.querySelectorAll(
 );
 
 imgs.forEach(img => {
-  img.addEventListener("click", () => {
-    alert("clicked!");
+  img.addEventListener("mousemove", e => {
+    let x = e.offsetX * 0.25;
+    let y = e.offsetY * 0.25;
+
+    img.style.filter = `grayscale(${x + y}%)`;
   });
 });
 
@@ -64,8 +67,12 @@ imgs.forEach(img => {
 const btns = document.querySelectorAll(".btn");
 
 btns.forEach(btn => {
-  btn.addEventListener("click", () => {
-    alert("clicked!");
+  btn.addEventListener("mousedown", () => {
+    btn.textContent = "You've just made a horrible mistake";
+    btn.style.textAlign = "center";
+  });
+  btn.addEventListener("mouseup", () => {
+    btn.textContent = "Sign Me Up!";
   });
 });
 
@@ -75,5 +82,5 @@ window.addEventListener("beforeprint", () => {
 });
 
 window.addEventListener("afterprint", () => {
-  alert("oooo wow look at this cool guy *printing websites* 😂🙃😂");
+  alert("oOoOo wow look at this cool guy *printing websites* 😂🙃😂");
 });
