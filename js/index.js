@@ -46,7 +46,7 @@ window.addEventListener("load", () => {
 const hero = document.querySelector(".intro img");
 
 hero.addEventListener("click", () => {
-  alert("clicked!");
+  hero.style.opacity = 0.5;
 });
 
 // all other imgs
@@ -67,13 +67,21 @@ imgs.forEach(img => {
 const btns = document.querySelectorAll(".btn");
 
 btns.forEach(btn => {
-  btn.addEventListener("mousedown", () => {
+  btn.addEventListener("mousedown", e => {
+    e.stopPropagation();
     btn.textContent = "You've just made a horrible mistake";
     btn.style.textAlign = "center";
   });
-  btn.addEventListener("mouseup", () => {
+  btn.addEventListener("mouseup", e => {
     btn.textContent = "Sign Me Up!";
   });
+});
+
+const ctaBlock = document.querySelector(".content-pick");
+
+ctaBlock.addEventListener("mousedown", e => {
+  ctaBlock.style.color = "red";
+  e.stopPropagation();
 });
 
 // print guilt tripping lol
